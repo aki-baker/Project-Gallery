@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Cards</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #d2bfff;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 40px 20px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .project-card {
+      display: flex;
+      background-color: #c19bff;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      padding: 30px;
+      max-width: 1100px;
+      width: 100%;
+      gap: 30px;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+
+    .project-card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card-left {
+      flex: 1 1 300px;
+      color: white;
+    }
+
+    .card-left h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .card-left .tech,
+    .card-left .desc {
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 10px 15px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .card-left .author {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .card-right {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      flex: 1 1 400px;
+    }
+
+    .card-right img {
+      width: 100%;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-right img:hover {
+      transform: scale(1.03);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      animation: zoomIn 0.4s ease;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .project-card {
+        flex-direction: column;
+        align-items: center;
+      }
+      .card-right {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Graphic Designing Card 1 -->
+  <div class="project-card">
+    <div class="card-left">
+      <h2>Graphic Designing Post</h2>
+      <div class="tech">Technologies: Canva</div>
+      <div class="desc">
+        Designed visually stunning graphics using Canva, including Night Event posters, Brand Design, Desktop Wallpapers, Business Cards, Logos, and many engaging social media posts.
+      </div>
+      <div class="author">Abu Baker Portfolio </div>
+    </div>
+    <div class="card-right">
+      <img src="images/Canva P 1.jpg" onclick="openModal(this.src)" alt="Design 1">
+      <img src="images/Canva P 2.jpg" onclick="openModal(this.src)" alt="Design 2">
+      <img src="images/Canva P 3.jpg" onclick="openModal(this.src)" alt="Design 3">
+      <img src="images/Canva P 4.jpg" onclick="openModal(this.src)" alt="Design 4">
+    </div>
+  </div>
+
+  <!-- Graphic Designing Card 2 -->
+  <div class="project-card">
+    <div class="card-left">
+      <h2>Graphic Designing Post</h2>
+      <div class="tech">Technologies: Canva</div>
+      <div class="desc">
+        Designed visually compelling content including YouTube Thumbnails, Event Posters, Logos, Business Cards and Brand Design templates using Canva.
+      </div>
+      <div class="author">Abu Baker Portfolio</div>
+    </div>
+    <div class="card-right">
+      <img src="images/Canva PS 1.jpg" onclick="openModal(this.src)">
+      <img src="images/Canva PS 2.jpg" onclick="openModal(this.src)">
+      <img src="images/Canva PS 3.jpg" onclick="openModal(this.src)">
+      <img src="images/Canva PS 4.png" onclick="openModal(this.src)">
+    </div>
+  </div>
+
+  <!-- Graphic Designing Card 3 -->
+  <div class="project-card">
+    <div class="card-left">
+      <h2>Graphic Designing Post</h2>
+      <div class="tech">Technologies: Canva</div>
+      <div class="desc">
+        Created creative assets such as wallpapers, social media banners, promotional flyers, and posters for brand and event marketing.
+      </div>
+      <div class="author">Abu Baker Portfolio </div>
+    </div>
+    <div class="card-right">
+      <img src="images/Canva P 8.jpg" onclick="openModal(this.src)">
+      <img src="images/Canva P 6.jpg" onclick="openModal(this.src)">
+      <img src="images/Canva P 7.jpg" onclick="openModal(this.src)">
+      <img src="images/Canva P 5.jpg" onclick="openModal(this.src)">
+    </div>
+  </div>
+
+  <!-- Video Editing Card -->
+  <div class="project-card">
+    <div class="card-left">
+      <h2>Video Editing</h2>
+      <div class="tech">Technologies: Microsoft Clipchamp, CapCut Pro</div>
+      <div class="desc">
+        Edited reels and long-form videos using Clipchamp and CapCut Pro. Focused on effects, transitions, audio sync, and visual storytelling.
+      </div>
+      <div class="author">Abu Baker Portfolio </div>
+    </div>
+    <div class="card-right">
+      <img src="images/V E 1.png" onclick="openModal(this.src)">
+      <img src="images/V E 2.png" onclick="openModal(this.src)">
+    </div>
+  </div>
+
+  <!-- Digital Marketing Card -->
+  <div class="project-card">
+    <div class="card-left">
+      <h2>Digital Marketing</h2>
+      <div class="tech">Technologies: Meta Ads</div>
+      <div class="desc">
+        Launched and managed ad campaigns on Facebook & Instagram using Meta Ads Manager. Specialized in targeting, creative design, and conversions.
+      </div>
+      <div class="author">Abu Baker Portfolio</div>
+    </div>
+    <div class="card-right">
+      <img src="images/M A 3.jpg" onclick="openModal(this.src)">
+      <img src="images/M A 2.jpg" onclick="openModal(this.src)">
+      <img src="images/M A 4.png" onclick="openModal(this.src)">
+      <img src="images/M A 1.jpg" onclick="openModal(this.src)">
+    </div>
+  </div>
+
+  <!-- Restaurant Website Card -->
+  <div class="project-card">
+    <div class="card-left">
+      <h2>Restaurant Webpage</h2>
+      <div class="tech">Technologies: HTML, CSS, JS, PHP</div>
+      <div class="desc">
+        Created a responsive restaurant site with add-to-cart, categories, Easypaisa integration, and user-friendly design.
+      </div>
+      <div class="author">Abu Baker Portfolio </div>
+    </div>
+    <div class="card-right">
+      <img src="images/WF.png" onclick="openModal(this.src)">
+      <img src="images/DF.png" onclick="openModal(this.src)">
+      <img src="images/WF..png" onclick="openModal(this.src)">
+      <img src="images/DF..png" onclick="openModal(this.src)">
+    </div>
+  </div>
+
+  <!-- Assignment Portal Card -->
+  <div class="project-card">
+    <div class="card-left">
+      <h2>University Assignment Portal</h2>
+      <div class="tech">Technologies: HTML, CSS, JS, PHP</div>
+      <div class="desc">
+        A portal where students can upload assignments by entering details like name, roll number, and viewing submission status.
+      </div>
+      <div class="author">Abu Baker Portfolio </div>
+    </div>
+    <div class="card-right">
+      <img src="images/AS W 1.png" onclick="openModal(this.src)">
+      <img src="images/AS W 2.png" onclick="openModal(this.src)">
+      <img src="images/AS W 3.png" onclick="openModal(this.src)">
+      <img src="images/AS W 4.png" onclick="openModal(this.src)">
+    </div>
+  </div>
+
+  <!-- Squid Game Login Page -->
+  <div class="project-card">
+    <div class="card-left">
+      <h2>Squid Game Login / Signup Page</h2>
+      <div class="tech">Technologies: HTML, CSS, JS, PHP</div>
+      <div class="desc">
+        Login and Signup page with Squid Game theme. LocalStorage used to store user email for smoother user experience.
+      </div>
+      <div class="author">Abu Baker Portfolio</div>
+    </div>
+    <div class="card-right">
+      <img src="images/L S 1.png" onclick="openModal(this.src)">
+      <img src="images/L S 2.png" onclick="openModal(this.src)">
+      <img src="images/L S 3.png" onclick="openModal(this.src)">
+      <img src="images/L S 4.png" onclick="openModal(this.src)">
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="imageModal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img id="modalImg" src="" alt="Full Image" />
+</div>
+
+<script>
+  function openModal(src) {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    modal.style.display = "flex";
+    modalImg.src = src;
+  }
+
+  function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+  }
+
+  // Animate cards on scroll
+  const cards = document.querySelectorAll('.project-card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  cards.forEach(card => observer.observe(card));
+</script>
+
+</body>
+</html>
